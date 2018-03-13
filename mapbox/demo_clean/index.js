@@ -72,8 +72,8 @@ var index;
 
 function recalcPos(geojson) {
     geojson.features.forEach(function (feature) {
-        feature.dx = feature.dx || 0.1 * Math.random();
-        feature.dy = feature.dy || 0.1 * Math.random();
+        feature.dx = feature.dx || Math.random();
+        feature.dy = feature.dy || Math.random();
         if (!feature.geometry) {
             return;
         }
