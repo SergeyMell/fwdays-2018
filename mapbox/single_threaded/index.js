@@ -94,6 +94,14 @@ var g, intervalId;
 getJSON('../test/fixtures/earthquakes.geojson', function (geojson) {
     console.log('loaded ' + geojson.length + ' points JSON in ' + ((Date.now() - now) / 1000) + 's');
     g = geojson;
+
+    index = supercluster({
+        log: false,
+        radius: 160,
+        extent: 256,
+        maxZoom: 37
+    }).load(g.features);
+    mainThreadCallback({ready: true});
 });
 
 function startCalc() {
